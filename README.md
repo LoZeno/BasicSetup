@@ -12,4 +12,4 @@ Expand-Archive -Path .\master.zip -DestinationPath .\
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ```
 
-Then execute the scripts in order
+Then execute the scripts in order. Reboot at the end if necessary.
