@@ -3,16 +3,19 @@ Scripts for basic setup of a windows development machine (.NET Core and Node dev
 
 
 ## How to use: 
-Open powershell, then type:
+Open powershell, then type, in this order:
 ```
 Invoke-WebRequest -Uri "https://github.com/LoZeno/BasicSetup/archive/master.zip" -OutFile master.zip
 
 Expand-Archive -Path .\master.zip -DestinationPath .\
 
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
-```
+Set-Location .\BasicSetup-master\src\
 
-Then navigate to the `.\BasicSetup\src\` folder, and execute the scripts in order. Reboot at the end if necessary.
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
+.\setup.ps1
+
+```
 
 If you get the following error:
 
