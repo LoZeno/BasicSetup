@@ -1,4 +1,5 @@
 #posh-git
+Install-Module Get-ChildItemColor
 PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
 
 #oh-my-posh

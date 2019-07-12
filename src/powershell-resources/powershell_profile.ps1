@@ -1,7 +1,3 @@
-# Calling ScreenFetch to show the windows logo
-
-screenfetch
-
 # TheFuck - brilliant commandline helper
 $env:PYTHONIOENCODING="utf-8"
 iex "$(thefuck --alias)"
