@@ -1,3 +1,3 @@
 $args = "choco install .\chocolatey\packages.config -y"
     
-Start-Process powershell.exe -Verb RunAs -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; $args; choco upgrade -y all;"
+Start-Process powershell.exe -Verb RunAs -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; $args; choco upgrade -y all;" | Out-Null
