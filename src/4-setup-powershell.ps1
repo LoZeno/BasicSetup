@@ -1,5 +1,3 @@
-#screenfetch
-
 #posh-git
 PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
 
@@ -9,6 +7,9 @@ Install-Module oh-my-posh -Scope CurrentUser
 
 #thefuck
 Invoke-Expression "pip install thefuck"
+
+#git-gud
+Invoke-Expression "pip install gitgud"
 
 #copy profile.ps1
 Get-Content .\powershell-resources\powershell_profile.ps1 | Set-Content $PROFILE
