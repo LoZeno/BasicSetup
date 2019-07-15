@@ -1,4 +1,4 @@
-$args = "Set-ExecutionPolicy Bypass -Scope Process -Force;
-        iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
-    
-Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; $args;"
+Write-Host "Installing Chocolatey... " -ForegroundColor Yellow -NoNewline
+Set-ExecutionPolicy Bypass -Scope Process -Force
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Write-Host "Done" -ForegroundColor Yellow
