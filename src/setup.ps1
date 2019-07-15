@@ -1,5 +1,7 @@
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
-$args = "$PSScriptRoot\1-enable-windows-features.ps1; $PSScriptRoot\2-install-chocolatey.ps1; $PSScriptRoot\3-install-software.ps1;"
+$args = "$PSScriptRoot\1-enable-windows-features.ps1; 
+        $PSScriptRoot\2-install-chocolatey.ps1; 
+        $PSScriptRoot\3-install-software.ps1;"
 Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
 Write-Host "Done" -ForegroundColor Yellow
 
