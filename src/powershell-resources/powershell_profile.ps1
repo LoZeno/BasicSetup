@@ -18,10 +18,8 @@ Import-Module -Name oh-my-posh
 # Set the default prompt theme
 Set-Theme paradox
 
-#Repos folder alias
-function repos {
-    Set-Location ~\Repos
-}
+#REFRESHENV
+Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 
 #Start new powershell prompt as administrator
 function sudo {
