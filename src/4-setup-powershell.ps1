@@ -17,7 +17,7 @@ Write-Host "Installing Git-Gud from PIP3"
 Invoke-Expression "pip install gitgud"
 
 #copy profile.ps1
-Write-Host "Setting up powershell/pwsh profile"
-Get-Content .\powershell-resources\powershell_profile.ps1 | Set-Content $PROFILE
+Write-Host "Setting up powershell core profile"
+Get-Content .\powershell-resources\powershell_profile.ps1 | Out-File $PROFILE -Append
 
 Write-Host "Setup complete"
