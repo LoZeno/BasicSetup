@@ -14,6 +14,10 @@ Start-Process pwsh.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command
 Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\4-setup-powershell.ps1;"
 Write-Host "Done" -ForegroundColor Yellow
 
-Write-Host "setting up vscode plugins" -ForegroundColor Yellow
+Write-Host "Setting up vscode plugins" -ForegroundColor Yellow
 Invoke-Expression $PSScriptRoot\5-setup-vscode.ps1
 Write-Host "Done" -ForegroundColor Yellow
+
+Write-Host "Copying wox theme... " -ForegroundColor Yellow -NoNewline
+$woxAppFolder = Get-ChildItem $env:LOCALAPPDATA\Wox -Filter "app-*" | Select-Object -First 1
+Copy-Item -Path .\wox\ZenoWhite.xaml -Destination $woxAppFolder.FullName\Themes
