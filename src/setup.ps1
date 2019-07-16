@@ -21,3 +21,6 @@ Write-Host "Done" -ForegroundColor Yellow
 Write-Host "Copying wox theme... " -ForegroundColor Yellow -NoNewline
 $woxAppFolder = Get-ChildItem $env:LOCALAPPDATA\Wox -Filter "app-*" | Select-Object -First 1
 Copy-Item -Path .\wox\ZenoWhite.xaml -Destination $woxAppFolder.FullName\Themes
+Write-Host "Done" -ForegroundColor Yellow
+
+Write-Host "Please reboot your machine."
