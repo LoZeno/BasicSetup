@@ -23,18 +23,29 @@ Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.s
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Installing software with scoop... " -ForegroundColor Yellow
+
+$scoopCommand = "scoop install"
+foreach ($item in Get-Content -Path .\scoop\scoop-prerequisites) {
+    $scoopCommand = "$scoopCommand $item"
+}
+Invoke-Expression "$scoopCommand"
+
 Invoke-Expression "scoop bucket add extras"
 Invoke-Expression "scoop bucket add jetbrains"
 Invoke-Expression "scoop bucket add java"
-foreach ($item in Get-Content -Path .\scoop\scoop-prerequisites) {
-    Invoke-Expression "scoop install $item"
-}
+
+$scoopCommand = "scoop install"
 foreach ($item in Get-Content -Path .\scoop\scoop-list) {
-    Invoke-Expression "scoop install $item"
+    $scoopCommand = "$scoopCommand $item"
 }
+Invoke-Expression "$scoopCommand"
+
+$scoopCommand = "scoop install"
 foreach ($item in Get-Content -Path .\scoop\scoop-dotnet) {
-    Invoke-Expression "scoop install $item"
+    $scoopCommand = "$scoopCommand $item"
 }
+Invoke-Expression "$scoopCommand"
+
 Write-Host "Done" -ForegroundColor Yellow
 
 Invoke-Expression "refreshenv"
