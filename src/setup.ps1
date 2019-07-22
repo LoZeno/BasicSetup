@@ -1,3 +1,12 @@
+Write-Host "Enter your Git setup details:" -ForegroundColor Yellow
+$gitEmail = Read-Host  "Enter your Git email: "
+$gitUser = Read-Host "Enter your Git user name: " 
+while (("Y", "N", "y", "n") -notcontains $gitGenerateSSH) {
+    $gitGenerateSSH = Read-Host "Do you want to generate your SSH key? [Y]es/[N]o" 
+}
+
+Write-Host "$gitEmail, $gitUser, $gitGenerateSSH"
+
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
 $args = "$PSScriptRoot\1-enable-windows-features.ps1; 
         $PSScriptRoot\2-install-chocolatey.ps1; 
@@ -16,11 +25,6 @@ Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up vscode plugins" -ForegroundColor Yellow
 Invoke-Expression $PSScriptRoot\5-setup-vscode.ps1
-Write-Host "Done" -ForegroundColor Yellow
-
-Write-Host "Copying wox theme... " -ForegroundColor Yellow -NoNewline
-$woxAppFolder = Get-ChildItem $env:LOCALAPPDATA\Wox -Filter "app-*" | Select-Object -First 1
-Copy-Item -Path .\wox\ZenoWhite.xaml -Destination $woxAppFolder.FullName\Themes
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Please reboot your machine."
