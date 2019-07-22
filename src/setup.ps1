@@ -1,6 +1,6 @@
 Write-Host "Enter your Git setup details:" -ForegroundColor Yellow
-$gitEmail = Read-Host  "Enter your Git email: "
 $gitUser = Read-Host "Enter your Git user name: " 
+$gitEmail = Read-Host  "Enter your Git email: "
 while (("Y", "N", "y", "n") -notcontains $gitGenerateSSH) {
     $gitGenerateSSH = Read-Host "Do you want to generate your SSH key? [Y]es/[N]o" 
 }
@@ -57,6 +57,10 @@ Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up vscode plugins" -ForegroundColor Yellow
 Invoke-Expression $PSScriptRoot\5-setup-vscode.ps1
+Write-Host "Done" -ForegroundColor Yellow
+
+Write-Host "Setting up git" -ForegroundColor Yellow
+Invoke-Expression $PSScriptRoot\6-setup-git.ps1 $gitUser $gitEmail $gitGenerateSSH
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Please reboot your machine."
