@@ -28,6 +28,7 @@ $scoopCommand = "scoop install"
 foreach ($item in Get-Content -Path .\scoop\scoop-prerequisites) {
     $scoopCommand = "$scoopCommand $item"
 }
+Write-Host $scoopCommand
 Invoke-Expression "$scoopCommand"
 
 Invoke-Expression "scoop bucket add extras"
@@ -38,12 +39,14 @@ $scoopCommand = "scoop install"
 foreach ($item in Get-Content -Path .\scoop\scoop-list) {
     $scoopCommand = "$scoopCommand $item"
 }
+Write-Host $scoopCommand
 Invoke-Expression "$scoopCommand"
 
 $scoopCommand = "scoop install"
 foreach ($item in Get-Content -Path .\scoop\scoop-dotnet) {
     $scoopCommand = "$scoopCommand $item"
 }
+Write-Host $scoopCommand
 Invoke-Expression "$scoopCommand"
 
 Write-Host "Done" -ForegroundColor Yellow
