@@ -18,6 +18,27 @@ Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
 Import-Module -Name C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 Invoke-Expression "refreshenv"
 
+Write-Host "Installing scoop... " -ForegroundColor Yellow
+Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
+Write-Host "Done" -ForegroundColor Yellow
+
+Write-Host "Installing software with scoop... " -ForegroundColor Yellow
+Invoke-Expression "scoop bucket add extras"
+Invoke-Expression "scoop bucket add jetbrains"
+Invoke-Expression "scoop bucket add java"
+foreach ($item in Get-Content -Path .\scoop\scoop-prerequisites) {
+    Invoke-Expression "scoop install $item"
+}
+foreach ($item in Get-Content -Path .\scoop\scoop-list) {
+    Invoke-Expression "scoop install $item"
+}
+foreach ($item in Get-Content -Path .\scoop\scoop-dotnet) {
+    Invoke-Expression "scoop install $item"
+}
+Write-Host "Done" -ForegroundColor Yellow
+
+Invoke-Expression "refreshenv"
+
 Write-Host "Setting up powershell CORE modules and profile" -ForegroundColor Yellow -NoNewline
 Start-Process pwsh.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck"
 Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\4-setup-powershell.ps1;"
