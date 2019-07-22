@@ -48,7 +48,7 @@ Invoke-Expression $PSScriptRoot\6-setup-vscode.ps1
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up git" -ForegroundColor Yellow
-Invoke-Expression $PSScriptRoot\7-setup-git.ps1 "$gitUser" $gitEmail $gitGenerateSSH
+Invoke-Expression "$PSScriptRoot\7-setup-git.ps1 '$gitUser' $gitEmail $gitGenerateSSH"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Please reboot your machine."
