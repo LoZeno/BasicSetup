@@ -35,7 +35,7 @@ function newAdmin {
 }
 
 function nano ($File){
-    $File = $File -replace “\\”, “/” -replace “ “, “\ “
+    $File = $File -replace “\\”, “/” -replace “ “, “\ “ -replace “[A-Z]:“, {"/mnt/"+$_.Value.ToLower()[0]}
     bash -c “nano $File”
 }
 
