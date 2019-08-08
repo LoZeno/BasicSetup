@@ -1,5 +1,5 @@
 # BasicSetup
-Scripts for basic setup of a windows development machine (.NET Core and Node development)
+Scripts for basic setup of a windows development machine (.NET Core and/or Node and/or java development)
 
 
 ## How to use: 
