@@ -37,7 +37,7 @@ Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.s
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Installing software with scoop... " -ForegroundColor Yellow
-Invoke-Expression $PSScriptRoot\4-install-scoop.ps1
+Invoke-Expression "$PSScriptRoot\4-install-scoop.ps1 $installDotnet $installJava $installGo"
 Write-Host "Done" -ForegroundColor Yellow
 
 Invoke-Expression "refreshenv"

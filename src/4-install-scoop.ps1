@@ -1,3 +1,7 @@
+$installDotnet = $args[0]
+$installJava = $args[1]
+$installGo = $args[2]
+
 function installFromScoopList([string]$listName) {
     $scoopCommand = "scoop install"
     foreach ($item in Get-Content -Path ".\scoop\scoop-$listName") {
