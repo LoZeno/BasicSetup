@@ -18,7 +18,7 @@ while ($options -notcontains $installJava) {
 }
 
 while ($options -notcontains $installGo) {
-    $installJava = Read-Host "Do you want to install the Go development stack? [Y]es/[N]o" 
+    $installGo = Read-Host "Do you want to install the Go development stack? [Y]es/[N]o" 
 }
 
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
