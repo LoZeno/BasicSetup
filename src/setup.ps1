@@ -17,6 +17,10 @@ while ($options -notcontains $installJava) {
     $installJava = Read-Host "Do you want to install the java development stack? [Y]es/[N]o" 
 }
 
+while ($options -notcontains $installGo) {
+    $installJava = Read-Host "Do you want to install the Go development stack? [Y]es/[N]o" 
+}
+
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
 $args = "$PSScriptRoot\1-enable-windows-features.ps1; 
         $PSScriptRoot\2-install-chocolatey.ps1; 

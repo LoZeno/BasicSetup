@@ -23,3 +23,7 @@ if (("Y", "y") -contains $installDotnet ) {
 if (("Y", "y") -contains $installJava ) {
     installFromScoopList "java"
 }
+
+if (("Y", "y") -contains $installGo ) {
+    installFromScoopList "go"
+}
