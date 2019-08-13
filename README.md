@@ -21,6 +21,7 @@ cd .\BasicSetup-master\src\
 1. [Chocolatey package manager](https://chocolatey.org/docs)
 1. [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
 1. Docker Desktop
+1. [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
 1. Powershell Core
 1. [FiraCode font](https://github.com/tonsky/FiraCode)
 1. IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
@@ -36,7 +37,7 @@ Scoop is great but it does not have the same extensive library of software as ch
 
 ## A note on the Console Emulator
 
-I use the new Windows Terminal, which (at the time of this writing) is still in beta but available on the Microsoft Store; this is the reason for a couple of choices I made:
+I use [the new Windows Terminal](https://github.com/Microsoft/Terminal), which (at the time of this writing) is still in beta but available on the Microsoft Store; this is the reason for a couple of choices I made:
 * Powershell Core is installed with chocolatey rather than scoop, so that the Windows Terminal can pick it once it's installed from the Microsoft Store
 * Fira Code (the font installed with these scripts) doesn't work on the standard conhost in windows, hence why the prompt modified by posh-git and oh-my-posh might look odd with several characters missing.
 * Unfortunately there is no way to automate installation of software from the Microsoft Store - you need to use the gui. Also, several workplaces block dowloads from the Microsoft Store, or even remove it from the Windows 10 image used. For those situations, I have included Cmder (https://cmder.net/) in the installation file.
