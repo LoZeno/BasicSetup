@@ -1,6 +1,9 @@
 # BasicSetup
-Scripts for basic setup of a windows development machine (.NET Core and/or Node and/or java development)
+Scripts for basic setup of a windows development machine (.NET Core and/or Node and/or java and/or Go development)
 
+## Preface
+This script was developed based on what **I** needed to rebuild on my laptop moving from one client to another. Your mileage may vary and nothing stops you from changing the stuff inside it.  
+My preferred way of work is to NEVER login with an Administrator level account, and instead type the admin passwod every time a UAC popup shows on my screen, so I planned my setup around that. Some people hate, if you're one of those people you can use this from an Administrator account as well, it will still work.
 
 ## How to use: 
 Open powershell, then type, in this order:
@@ -13,7 +16,7 @@ cd .\BasicSetup-master\src\
 ```
 ## Why both chocolatey and scoop?
 
-Scoop is great but it does not have the same extensive library of software as chocolaey - especially when it's software that requires Admin privileges to be installed. So, to install things like Docker Desktop, Viscosity, and .NET framework (which is a prerequisite for Scoop anyway), I used chocolatey, and the script makes it run in an elevated prompt; to avoid adding more prompts for admin password, anything that needs Admin privileges to install is installed using chocolatey since there's already a step for it, and anything else using scoop.
+Scoop is great but it does not have the same extensive library of software as chocolatey - especially when it's software that requires Admin privileges to be installed. So, to install things like Docker Desktop, Viscosity, and .NET framework (which is a prerequisite for Scoop anyway), I used chocolatey, and the script makes it run in an elevated prompt; to avoid adding more prompts for admin password, anything that needs Admin privileges to install is installed using chocolatey since there's already a step for it, and anything else using scoop.
 
 ## A note on the Console Emulator
 
