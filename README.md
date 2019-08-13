@@ -20,9 +20,9 @@ cd .\BasicSetup-master\src\
 1. Hyper-V and WSL (Windows Subsystem for Linux) in the Windows Features list. It does NOT install Ubuntu for WSL (or OpenSUSE for WSL or Kali or Debian...), for those you'll need to manually get them from the Microsoft Store
 1. [Chocolatey package manager](https://chocolatey.org/docs)
 1. [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
-1. Docker Desktop
+1. [Docker Desktop](https://www.docker.com/)
 1. [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
-1. Powershell Core
+1. [Powershell Core](https://github.com/powershell/powershell)
 1. [FiraCode font](https://github.com/tonsky/FiraCode)
 1. IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
 1. Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
