@@ -17,19 +17,19 @@ cd .\BasicSetup-master\src\
 
 ## What does it set up:
 
-1. Hyper-V and WSL (Windows Subsystem for Linux) in the Windows Features list. It does NOT install Ubuntu for WSL (or OpenSUSE for WSL or Kali or Debian...), for those you'll need to manually get them from the Microsoft Store
-1. [Chocolatey package manager](https://chocolatey.org/docs)
-1. [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
-1. [Docker Desktop](https://www.docker.com/)
-1. [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
-1. [Powershell Core](https://github.com/powershell/powershell)
-1. [FiraCode font](https://github.com/tonsky/FiraCode)
-1. IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
-1. Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
-1. Initial setup for Git based on the user's prompt
-1. Convenient aliases in powershell core profile
-1. Commonly used VSCode extensions
-1. Extra utilities and software that I find useful and/or often required in various offices. Software is organised in simple lists under the `chocolatey` and `scoop` folders, so if anything falls under your definition of crapware just remove the name from the list files.
+* Hyper-V and WSL (Windows Subsystem for Linux) in the Windows Features list. It does NOT install Ubuntu for WSL (or OpenSUSE for WSL or Kali or Debian...), for those you'll need to manually get them from the Microsoft Store
+* [Chocolatey package manager](https://chocolatey.org/docs)
+* [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
+* [Docker Desktop](https://www.docker.com/)
+* [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
+* [Powershell Core](https://github.com/powershell/powershell)
+* [FiraCode font](https://github.com/tonsky/FiraCode)
+* IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
+* Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
+* Initial setup for Git based on the user's prompt
+* Convenient aliases in powershell core profile
+* Commonly used VSCode extensions
+* Extra utilities and software that I find useful and/or often required in various offices. Software is organised in simple lists under the `chocolatey` and `scoop` folders, so if anything falls under your definition of crapware just remove the name from the list files.
 
 ## Why both chocolatey and scoop?
 
