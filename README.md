@@ -28,7 +28,7 @@ cd .\BasicSetup-master\src\
 1. Initial setup for Git based on the user's prompt
 1. Convenient aliases in powershell core profile
 1. Commonly used VSCode extensions
-1. Extra utilities that I find useful
+1. Extra utilities and software that I find useful and/or often required in various offices. Software is organised in simple lists under the `chocolatey` and `scoop` folders, so if anything falls under your definition of crapware just remove the name from the list files.
 
 ## Why both chocolatey and scoop?
 
