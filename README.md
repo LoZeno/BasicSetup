@@ -3,7 +3,7 @@ Scripts for basic setup of a windows development machine (.NET Core and/or Node 
 
 ## Preface
 This script was developed based on what **I** needed to rebuild on my laptop moving from one client to another. Your mileage may vary and nothing stops you from changing the stuff inside it.  
-My preferred way of work is to NEVER login with an Administrator level account, and instead type the admin passwod every time a UAC popup shows on my screen, so I planned my setup around that. Some people hate, if you're one of those people you can use this from an Administrator account as well, it will still work.
+My preferred way of work is to NEVER login with an Administrator level account, and instead type the admin passwod every time a UAC popup shows on my screen, so I planned my setup around that. Some people hate that, if you're one of those people you can use this from an Administrator account as well, it will still work.
 
 ## How to use: 
 Open powershell, then type, in this order:
