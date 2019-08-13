@@ -14,6 +14,22 @@ Expand-Archive .\master.zip .\
 cd .\BasicSetup-master\src\
 .\setup.ps1
 ```
+
+## What does it set up:
+
+1. Hyper-V and WSL (Windows Subsystem for Linux) in the Windows Features list. It does NOT install Ubuntu for WSL (or OpenSUSE for WSL or Kali or Debian...), for those you'll need to manually get them from the Microsoft Store
+1. [Chocolatey package manager](https://chocolatey.org/docs)
+1. [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
+1. Docker Desktop
+1. Powershell Core
+1. [FiraCode font](https://github.com/tonsky/FiraCode)
+1. IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
+1. Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
+1. Initial setup for Git based on the user's prompt
+1. Convenient aliases in powershell core profile
+1. Commonly used VSCode extensions
+1. Extra utilities that I find useful
+
 ## Why both chocolatey and scoop?
 
 Scoop is great but it does not have the same extensive library of software as chocolatey - especially when it's software that requires Admin privileges to be installed. So, to install things like Docker Desktop, Viscosity, and .NET framework (which is a prerequisite for Scoop anyway), I used chocolatey, and the script makes it run in an elevated prompt; to avoid adding more prompts for admin password, anything that needs Admin privileges to install is installed using chocolatey since there's already a step for it, and anything else using scoop.

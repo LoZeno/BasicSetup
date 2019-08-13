@@ -21,11 +21,12 @@ Set-Theme paradox
 #REFRESHENV
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 
-#Start new powershell prompt as administrator
-function sudo {
+#Start new powershell prompt as administrator, and closes when command is completed
+function su {
     Start-Process pwsh.exe -Verb RunAs -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; $args;" 
 }
 
+#Start new powershell prompt as administrator
 function elevate {
     Start-Process pwsh.exe -Verb RunAs -Args "-noexit -executionpolicy bypass -command Set-Location \`"$PWD\`"; $args;" 
 }
