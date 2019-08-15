@@ -13,10 +13,11 @@ function installFromScoopList([string]$listName) {
 
 installFromScoopList "prerequisites"
 
-Write-Host "Adding scoop buckets: extra, java, jetbrains" -ForegroundColor Yellow
+Write-Host "Adding scoop buckets: extra, java, jetbrains, versions" -ForegroundColor Yellow
 Invoke-Expression "scoop bucket add extras"
 Invoke-Expression "scoop bucket add jetbrains"
 Invoke-Expression "scoop bucket add java"
+Invoke-Expression "scoop bucket add versions"
 
 installFromScoopList "list"
 
