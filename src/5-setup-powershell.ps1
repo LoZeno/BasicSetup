@@ -8,6 +8,10 @@ Write-Host "Installing oh-my-posh"
 Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 Install-Module oh-my-posh -Scope CurrentUser
 
+#PSFzf
+Write-Host "Installing Powershell wrapper for fzf"
+Install-Module -Name PSFzf
+
 #thefuck
 Write-Host "Installing TheFuck from PIP3"
 Invoke-Expression "pip install thefuck"

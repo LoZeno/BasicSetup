@@ -1,10 +1,10 @@
 function installCodeExtensions([string]$listName) {
-    $scoopCommand = "code --install-extension"
+    $installCommand = "code --install-extension"
     foreach ($item in Get-Content -Path ".\vs-code\plugin-$listName") {
-        $scoopCommand = "$scoopCommand $item"
+        $installCommand = "$installCommand $item"
     }
-    Write-Host $scoopCommand -ForegroundColor Yellow
-    Invoke-Expression "$scoopCommand"
+    Write-Host $installCommand -ForegroundColor Yellow
+    Invoke-Expression "$installCommand"
 }
 
 installCodeExtensions "list"

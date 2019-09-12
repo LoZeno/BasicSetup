@@ -20,6 +20,7 @@ Invoke-Expression "scoop bucket add java"
 Invoke-Expression "scoop bucket add versions"
 
 installFromScoopList "list"
+installFromScoopList "cli"
 
 if (("Y", "y") -contains $installDotnet ) {
     installFromScoopList "dotnet" 
