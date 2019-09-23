@@ -26,6 +26,7 @@ cd .\BasicSetup-master\src\
 * [FiraCode font](https://github.com/tonsky/FiraCode)
 * IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
 * Several CLI utilities: [GOW](https://github.com/bmatzelle/gow), [ag](https://geoff.greer.fm/ag/), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [noti](https://github.com/variadico/noti), [fzf](https://github.com/junegunn/fzf) and its Powershell wrapper [PSFzf](https://github.com/kelleyma49/PSFzf)
+* [Sysinternals tools](https://docs.microsoft.com/en-us/sysinternals/)
 * Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
 * Initial setup for Git based on the user's prompt
 * Convenient aliases in powershell core profile
