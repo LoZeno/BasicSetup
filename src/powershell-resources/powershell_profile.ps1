@@ -38,9 +38,18 @@ function newAdmin {
     elevate $PROFILE
 }
 
+function formatPathForWsl($FilePath){
+    return $FilePath -replace “\\”, “/” -replace “ “, “\ “ -replace “[A-Z]:“, {"/mnt/"+$_.Value.ToLower()[0]}
+}
+
 function nano ($File){
-    $File = $File -replace “\\”, “/” -replace “ “, “\ “ -replace “[A-Z]:“, {"/mnt/"+$_.Value.ToLower()[0]}
-    bash -c “nano $File”
+    $File = formatPathForWsl($File)
+    bash -c "nano $File"
+}
+
+function vim ($File){
+    $File = formatPathForWsl($File)
+    bash -c "vim $File"
 }
 
 Set-Alias la Get-ChildItem
@@ -57,4 +66,12 @@ function updateRepos {
         }
         Set-Location $_.Parent 
     } 
+}
+
+function preview($File) {
+    if ([string]::IsNullOrWhiteSpace($File))
+    {
+        $File = "{}"
+    }
+    Invoke-Expression "fzf --preview 'bat --color ""always"" $File'"
 }
