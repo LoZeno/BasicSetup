@@ -11,6 +11,7 @@ function installFromScoopList([string]$listName) {
     Invoke-Expression "$scoopCommand"
 }
 
+Invoke-Expression "scoop config 7ZIPEXTRACT_USE_EXTERNAL $true"
 installFromScoopList "prerequisites"
 
 Write-Host "Adding scoop buckets: extra, java, jetbrains, versions" -ForegroundColor Yellow
