@@ -1,5 +1,5 @@
 Invoke-Expression "scoop config 7ZIPEXTRACT_USE_EXTERNAL $true"
-installFromScoopList "prerequisites"
+Invoke-Expression "scoop install git"
 
 Write-Host "Adding scoop buckets: extra, java, jetbrains, versions" -ForegroundColor Yellow
 Invoke-Expression "scoop bucket add extras"
