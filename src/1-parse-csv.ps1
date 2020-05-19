@@ -15,7 +15,7 @@ while (('Y', 'y') -notcontains $accepted) {
         while (($stackName -ne "base") -and ($stackOptions -notcontains $installStack)) {
             $installStack = Read-Host "Do you want to install the $stackName stack? [Y]es/[N]o/[S]how packages in $stackName"
             if (("S", "s") -contains $installStack) {
-                $csvFile | Where-Object List -eq $stackName | more
+                $csvFile | Where-Object List -eq $stackName | Select-Object PackageName, List | more
                 $installStack = ""
             } 
         }
