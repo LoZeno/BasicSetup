@@ -1,6 +1,8 @@
 ﻿$options = ("Y", "N", "y", "n")
 
-$stacks = Import-Csv .\softwareList.csv | group -Property List | select Name
+$csvFile =  Import-Csv .\softwareList.csv
+
+$stacks = $csvFile | group -Property List | select Name
 
 $selectedStacks = @()
 $stacks | ForEach-Object -Process {
@@ -14,5 +16,22 @@ $stacks | ForEach-Object -Process {
         $selectedStacks += $stackName
     }
 }
+# prepare packages.config for chocolatey
 
-Write-Output $selectedStacks
+$chocolateyPackages = $csvFile | ? List -In ("base", "cli", "common") | ? Installer -eq "chocolatey" | select PackageName
+
+Write-Output $chocolateyPackages
+[xml]$xmlDocument = New-Object System.Xml.XmlDocument
+$decoration = $xmlDocument.CreateXmlDeclaration("1.0", "utf-8", $null)
+$xmlDocument.AppendChild($decoration)
+
+$root = $xmlDocument.CreateNode("element", "packages", $null)
+$xmlDocument.AppendChild($root)
+
+foreach($package in $chocolateyPackages) {
+    $packageNode = $xmlDocument.CreateNode("element", "package", $null)
+    $packageNode.SetAttribute("id", $package.PackageName) | Out-Null
+    $root.AppendChild($packageNode) | Out-Null
+}
+
+$xmlDocument.Save("$PSScriptRoot\packages.config")
