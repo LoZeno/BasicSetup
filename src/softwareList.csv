@@ -46,7 +46,7 @@ slack,scoop,slack
 mattermost,scoop,mattermost
 spacesniffer,scoop,common
 sysinternals,scoop,common
-vscode,scoop,common
+vscode,scoop,base
 wox,scoop,common
 IntelliJ-IDEA,scoop,java
 openjdk,scoop,java
