@@ -16,17 +16,21 @@ $stacks | ForEach-Object -Process {
         $selectedStacks += $stackName
     }
 }
+
+$selectedPackages = $csvFile | ? List -In $selectedStacks
+
+Write-Host "Here's the list of software that will be installed:"
+$selectedPackages | sort -Property "List" | select PackageName, List | more
+
 # prepare packages.config for chocolatey
+$chocolateyPackages = $selectedPackages | ? Installer -eq "chocolatey" | select PackageName
 
-$chocolateyPackages = $csvFile | ? List -In ("base", "cli", "common") | ? Installer -eq "chocolatey" | select PackageName
-
-Write-Output $chocolateyPackages
 [xml]$xmlDocument = New-Object System.Xml.XmlDocument
 $decoration = $xmlDocument.CreateXmlDeclaration("1.0", "utf-8", $null)
-$xmlDocument.AppendChild($decoration)
+$xmlDocument.AppendChild($decoration) | Out-Null
 
 $root = $xmlDocument.CreateNode("element", "packages", $null)
-$xmlDocument.AppendChild($root)
+$xmlDocument.AppendChild($root) | Out-Null
 
 foreach($package in $chocolateyPackages) {
     $packageNode = $xmlDocument.CreateNode("element", "package", $null)
@@ -34,4 +38,13 @@ foreach($package in $chocolateyPackages) {
     $root.AppendChild($packageNode) | Out-Null
 }
 
-$xmlDocument.Save("$PSScriptRoot\packages.config")
+$xmlDocument.Save("$PSScriptRoot\packages.config") | Out-Null
+
+
+# prepare list file for scoop
+
+$scoopPackages = $selectedPackages | ? Installer -eq "scoop" | sort -Property "PackageName" | select PackageName
+
+foreach($package in $scoopPackages) {
+    Add-Content -Path "$PSScriptRoot\scoop.txt" -Value $package.PackageName
+}
