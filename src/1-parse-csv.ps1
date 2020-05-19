@@ -61,3 +61,11 @@ $scoopPackages = $selectedPackages | ? Installer -eq "scoop" | sort -Property "P
 foreach($package in $scoopPackages) {
     Add-Content -Path "$PSScriptRoot\scoop.txt" -Value $package.PackageName
 }
+
+# prepare list file for vscode
+
+$vscodePlugins = $selectedPackages | ? Installer -eq "vs-code" | sort -Property "PackageName" | select PackageName
+
+foreach($plugin in $vscodePlugins) {
+    Add-Content -Path "$PSScriptRoot\vscode.txt" -Value $plugin.PackageName
+}
