@@ -1,3 +1,7 @@
+#Setting PSGallery to "trusted repository"
+Write-Host "Adding PSGallery to the trusted repositories"
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
 #posh-git
 Write-Host "Installing Posh-Git"
 Install-Module Get-ChildItemColor -AllowClobber
