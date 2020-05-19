@@ -24,14 +24,20 @@ cd .\BasicSetup-master\src\
 * [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
 * [Powershell Core](https://github.com/powershell/powershell)
 * [FiraCode font](https://github.com/tonsky/FiraCode)
-* IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript)
+* IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript, Rust)
 * Several CLI utilities: [GOW](https://github.com/bmatzelle/gow), [ag](https://geoff.greer.fm/ag/), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [noti](https://github.com/variadico/noti), [fzf](https://github.com/junegunn/fzf) and its Powershell wrapper [PSFzf](https://github.com/kelleyma49/PSFzf)
 * [Sysinternals tools](https://docs.microsoft.com/en-us/sysinternals/)
+* [Microsoft Powertoys](https://github.com/microsoft/PowerToys)
 * Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
 * Initial setup for Git based on the user's prompt
 * Convenient aliases in powershell core profile
 * Commonly used VSCode extensions
-* Extra utilities and software that I find useful and/or often required in various offices. Software is organised in simple lists under the `chocolatey` and `scoop` folders, so if anything falls under your definition of crapware just remove the name from the list files.
+* Extra utilities and software that I find useful and/or often required in various offices.
+
+The list of applications and plugins that will be installed is stored in `softwareList.csv`.  
+The CSV file shows the stack that each package/plugin belongs to, and the installer/application that will be used to download and install it (scoop, chocolatey or VisualStudio Code in case of its own plugins). During the execution of the script you'll be prompted to confirm installation of each list except for "base", which contain the "mandatory" stuff to install.  
+
+Before running the script you can easily edit the `softwareList.csv` file to include your favourite packages or delete stuff you don't need, add new lists if you like and so on; I strongly advise against modifying the packages listed as "base" since some of those are necessary to make the rest of the scripts work.
 
 ## Why both chocolatey and scoop?
 
@@ -40,6 +46,5 @@ Scoop is great but it does not have the same extensive library of software as ch
 ## A note on the Console Emulator
 
 I use [the new Windows Terminal](https://github.com/Microsoft/Terminal), which (at the time of this writing) is still in beta but available on the Microsoft Store; this is the reason for a couple of choices I made:
-* Powershell Core is installed with chocolatey rather than scoop, so that the Windows Terminal can pick it once it's installed from the Microsoft Store
 * Fira Code (the font installed with these scripts) doesn't work on the standard conhost in windows, hence why the prompt modified by posh-git and oh-my-posh might look odd with several characters missing.
 * ~~Unfortunately there is no way to automate installation of software from the Microsoft Store - you need to use the gui. Also, several workplaces block dowloads from the Microsoft Store, or even remove it from the Windows 10 image used. For those situations, I have included Cmder (https://cmder.net/) in the installation file.~~ Windows Terminal is now available as a chocolatey package, so it's now included in the packages.config for installation throuch chocolatey.
