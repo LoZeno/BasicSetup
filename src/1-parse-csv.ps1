@@ -5,7 +5,7 @@ $csvFile =  Import-Csv .\softwareList.csv
 
 while (('Y', 'y') -notcontains $accepted) {
     $accepted = "";
-    $stacks = $csvFile | Group-Object -Property List | Select-Object Name
+    $stacks = $csvFile | Group-Object -Property "List" | sort -Property "List" | Select-Object Name
 
     $selectedStacks = @()
     $stacks | ForEach-Object -Process {
