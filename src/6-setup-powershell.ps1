@@ -12,6 +12,9 @@ Install-Module oh-my-posh -Scope CurrentUser
 Write-Host "Installing Powershell wrapper for fzf"
 Install-Module -Name PSFzf
 
+Write-Host "Updating pip"
+Invoke-Expression "python -m pip install --upgrade pip"
+
 #thefuck
 Write-Host "Installing TheFuck from PIP3"
 Invoke-Expression "pip install thefuck"
