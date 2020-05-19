@@ -22,9 +22,15 @@ Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
 Import-Module -Name C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 Invoke-Expression "refreshenv"
 
-Write-Host "Installing scoop... " -ForegroundColor Yellow
-Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
-Write-Host "Done" -ForegroundColor Yellow
+if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
+
+    Write-Host "Installing scoop... " -ForegroundColor Yellow
+    Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
+    Write-Host "Done" -ForegroundColor Yellow
+
+} else {
+    Write-Host "Previous scoop installation detected" -ForegroundColor Yellow
+}
 
 Write-Host "Installing software with scoop... " -ForegroundColor Yellow
 Invoke-Expression $PSScriptRoot\5-install-scoop.ps1
@@ -44,5 +50,11 @@ Write-Host "Done" -ForegroundColor Yellow
 Write-Host "Setting up git" -ForegroundColor Yellow
 Invoke-Expression "$PSScriptRoot\8-setup-git.ps1 '$gitUser' $gitEmail $gitGenerateSSH"
 Write-Host "Done" -ForegroundColor Yellow
+
+# cleaning up
+
+Remove-Item -Path "$PSScriptRoot\packages.config"
+Remove-Item -Path "$PSScriptRoot\scoop.txt"
+Remove-Item -Path "$PSScriptRoot\vscode.txt"
 
 Write-Host "Please reboot your machine."
