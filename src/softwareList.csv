@@ -41,7 +41,7 @@ openssh,scoop,common
 insomnia,scoop,common
 powertoys,scoop,common
 pwsh,scoop,base
-python,scoop,base
+python,chocolatey,base
 slack,scoop,slack
 mattermost,scoop,mattermost
 spacesniffer,scoop,common
