@@ -1,5 +1,5 @@
 # BasicSetup
-Scripts for basic setup of a windows development machine (.NET Core and/or Node and/or java and/or Go development)
+Scripts for basic setup of a windows development machine (.NET Core and/or Node and/or java and/or Go and/or Rust development)
 
 ## Preface
 This script was developed based on what **I** needed to rebuild on my laptop moving from one client to another. Your mileage may vary and nothing stops you from changing the stuff inside it.  
@@ -45,6 +45,4 @@ Scoop is great but it does not have the same extensive library of software as ch
 
 ## A note on the Console Emulator
 
-I use [the new Windows Terminal](https://github.com/Microsoft/Terminal), which (at the time of this writing) is still in beta but available on the Microsoft Store; this is the reason for a couple of choices I made:
-* Fira Code (the font installed with these scripts) doesn't work on the standard conhost in windows, hence why the prompt modified by posh-git and oh-my-posh might look odd with several characters missing.
-* ~~Unfortunately there is no way to automate installation of software from the Microsoft Store - you need to use the gui. Also, several workplaces block dowloads from the Microsoft Store, or even remove it from the Windows 10 image used. For those situations, I have included Cmder (https://cmder.net/) in the installation file.~~ Windows Terminal is now available as a chocolatey package, so it's now included in the packages.config for installation throuch chocolatey.
+I use [the new Windows Terminal](https://github.com/Microsoft/Terminal), with the FiraCode font instead of the default Cascadia Code; the powershell profile that gets updated by these scripts assumes FiraCode is used, so opening the normal Powershell window will result in missing characters in the oh-my-posh prompt.
