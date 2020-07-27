@@ -56,7 +56,7 @@ GoLand,scoop,golang
 Rider,scoop,dotnet
 dotnet-sdk,scoop,dotnet
 rustup-msvc,scoop,rust
-ms-vscode.csharp,vs-code,dotnet
+ms-dotnettools.csharp,vs-code,dotnet
 ms-azuretools.vscode-docker,vs-code,docker
 dbaeumer.vscode-eslint,vs-code,nodejs
 ms-vsliveshare.vsliveshare,vs-code,base
@@ -71,6 +71,6 @@ ms-vscode-remote.remote-containers,vs-code,docker
 ms-vscode-remote.remote-wsl,vs-code,base
 rust-lang.rust,vs-code,rust
 ms-mssql.mssql,vs-code,sql
-mauve.terraform,vs-code,aws
-mauve.terraform,vs-code,azure
+hashicorp.terraform,vs-code,aws
+hashicorp.terraform,vs-code,azure
 ms-vscode.vscode-typescript-tslint-plugin,vs-code,nodejs
