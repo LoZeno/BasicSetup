@@ -13,3 +13,8 @@ foreach ($item in Get-Content -Path ".\scoop.txt") {
 }
 Write-Host $scoopCommand -ForegroundColor Yellow
 Invoke-Expression "$scoopCommand"
+
+$gsudoCommand = "gsudo config CacheMode auto"
+Write-Host "Setting gsudo cache mode" -ForegroundColor Yellow
+Write-Host $gsudoCommand -ForegroundColor Yellow
+Invoke-Expression "$gsudoCommand"
