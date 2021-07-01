@@ -11,17 +11,6 @@ while ($options -notcontains $gitGenerateSSH) {
 
 Invoke-Expression $PSScriptRoot\1-parse-csv.ps1
 
-Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
-$args = "$PSScriptRoot\2-enable-windows-features.ps1; 
-        $PSScriptRoot\3-install-chocolatey.ps1; 
-        $PSScriptRoot\4-install-software.ps1;"
-Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
-Write-Host "Done" -ForegroundColor Yellow
-
-Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
-Import-Module -Name C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
-Invoke-Expression "refreshenv"
-
 if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
 
     Write-Host "Installing scoop... " -ForegroundColor Yellow
@@ -36,11 +25,27 @@ Write-Host "Installing software with scoop... " -ForegroundColor Yellow
 Invoke-Expression $PSScriptRoot\5-install-scoop.ps1
 Write-Host "Done" -ForegroundColor Yellow
 
+Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
+$adminCommands = "gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
+        gsudo $PSScriptRoot\3-install-chocolatey.ps1; 
+        gsudo $PSScriptRoot\4-install-software.ps1;"
+# Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
+Invoke-Expression "$adminCommands"
+Write-Host "Done" -ForegroundColor Yellow
+
+Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
+Import-Module -Name C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
+Invoke-Expression "refreshenv"
+
+
+
 Invoke-Expression "refreshenv"
 
 Write-Host "Setting up powershell CORE modules and profile" -ForegroundColor Yellow -NoNewline
-Start-Process pwsh.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck"
-Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\6-setup-powershell.ps1;"
+# Start-Process pwsh.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck"
+# Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\6-setup-powershell.ps1;"
+Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck
+Invoke-Expression "gsudo $PSScriptRoot\6-setup-powershell.ps1"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up vscode plugins" -ForegroundColor Yellow
