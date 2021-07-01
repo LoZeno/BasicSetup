@@ -49,10 +49,8 @@ Invoke-Expression "refreshenv"
 Invoke-Expression "refreshenv"
 
 Write-Host "Setting up powershell CORE modules and profile" -ForegroundColor Yellow -NoNewline
-# Start-Process pwsh.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck"
-# Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\6-setup-powershell.ps1;"
-Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck
-Invoke-Expression "gsudo $PSScriptRoot\6-setup-powershell.ps1"
+Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck"
+Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; $PSScriptRoot\6-setup-powershell.ps1;"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up vscode plugins" -ForegroundColor Yellow
