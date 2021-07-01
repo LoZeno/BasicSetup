@@ -31,6 +31,7 @@ Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
 #         gsudo $PSScriptRoot\4-install-software.ps1;"
 # Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
 # Invoke-Expression "$adminCommands"
+gsudo Set-ExecutionPolicy RemoteSigned
 Unblock-File -Path $PSScriptRoot\2-enable-windows-features.ps1
 Unblock-File -Path $PSScriptRoot\3-install-chocolatey.ps1
 Unblock-File -Path $PSScriptRoot\4-install-software.ps1
