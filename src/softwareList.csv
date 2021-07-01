@@ -10,7 +10,7 @@ microsoft-windows-terminal,chocolatey,base
 microsoft-teams,chocolatey,msteams
 netfx-4.8,chocolatey,base
 viscosity,chocolatey,vpn
-git,scoop,base
+git-with-openssh,scoop,base
 ack,scoop,cli
 ag,scoop,cli
 bat,scoop,cli
