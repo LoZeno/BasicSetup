@@ -26,11 +26,15 @@ Invoke-Expression $PSScriptRoot\5-install-scoop.ps1
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
-$adminCommands = "gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
-        gsudo $PSScriptRoot\3-install-chocolatey.ps1; 
-        gsudo $PSScriptRoot\4-install-software.ps1;"
+# $adminCommands = "gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
+#         gsudo $PSScriptRoot\3-install-chocolatey.ps1; 
+#         gsudo $PSScriptRoot\4-install-software.ps1;"
 # Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
-Invoke-Expression "$adminCommands"
+# Invoke-Expression "$adminCommands"
+gsudo Invoke-Expression "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process;
+        gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
+        gsudo $PSScriptRoot\3-install-chocolatey.ps1; 
+        gsudo $PSScriptRoot\4-install-software.ps1"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
