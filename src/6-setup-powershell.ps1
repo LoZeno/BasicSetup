@@ -19,6 +19,10 @@ Install-Module -Name PSFzf
 Write-Host "Updating pip"
 Invoke-Expression "python -m pip install --upgrade pip"
 
+#pip-review
+Write-Host "Installing pip-review from PIP3 (to easily update pip packages)"
+Invoke-Expression "pip install pip-review"
+
 #thefuck
 Write-Host "Installing TheFuck from PIP3"
 Invoke-Expression "pip install thefuck"
