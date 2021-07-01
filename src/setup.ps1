@@ -31,8 +31,12 @@ Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
 #         gsudo $PSScriptRoot\4-install-software.ps1;"
 # Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
 # Invoke-Expression "$adminCommands"
-gsudo Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process; 
-Invoke-Expression "gsudo $PSScriptRoot\2-enable-windows-features.ps1; gsudo $PSScriptRoot\3-install-chocolatey.ps1; gsudo $PSScriptRoot\4-install-software.ps1"
+gsudo Set-ExecutionPolicy -ExecutionPolicy Bypass -File $PSScriptRoot\2-enable-windows-features.ps1
+gsudo Set-ExecutionPolicy -ExecutionPolicy Bypass -File $PSScriptRoot\3-install-chocolatey.ps1
+gsudo Set-ExecutionPolicy -ExecutionPolicy Bypass -File $PSScriptRoot\4-install-software.ps1
+Invoke-Expression "gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
+        gsudo $PSScriptRoot\3-install-chocolatey.ps1;
+        gsudo $PSScriptRoot\4-install-software.ps1"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
