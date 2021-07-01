@@ -37,7 +37,6 @@ keepassxc,scoop,common
 nuget,scoop,common
 nvm,scoop,nodejs
 yarn,scoop,nodejs
-openssh,scoop,common
 insomnia-designer,scoop,common
 powertoys,scoop,common
 pwsh,scoop,base
