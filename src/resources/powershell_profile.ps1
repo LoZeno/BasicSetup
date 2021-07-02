@@ -12,8 +12,8 @@ Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
 # Ensure posh-git is loaded
 Import-Module -Name posh-git
 
-# Ensure oh-my-posh is loaded
-Import-Module -Name oh-my-posh
+# # Ensure oh-my-posh is loaded
+# Import-Module -Name oh-my-posh
 
 # PSFzf
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
