@@ -2,6 +2,10 @@
 Write-Host "Adding PSGallery to the trusted repositories"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
+#Get-ChildItemColor
+Write-Host "Installing Get-ChildItemColor"
+Install-Module -Name Get-ChildItemColor -AllowClobber
+
 #oh-my-posh
 Write-Host "Installing oh-my-posh"
 Install-Module oh-my-posh -Scope CurrentUser
