@@ -44,10 +44,6 @@ Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
 Import-Module -Name C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 Invoke-Expression "refreshenv"
 
-
-
-Invoke-Expression "refreshenv"
-
 Write-Host "Setting up powershell CORE modules and profile" -ForegroundColor Yellow -NoNewline
 Start-Process pwsh.exe -Wait -Args "-executionpolicy bypass -command Set-Location $PWD; Install-Module -Name PSReadLine -AllowPrerelease -Force -SkipPublisherCheck; $PSScriptRoot\6-setup-powershell.ps1"
 Write-Host "Done" -ForegroundColor Yellow

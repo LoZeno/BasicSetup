@@ -40,7 +40,7 @@ yarn,scoop,nodejs
 insomnia-designer,scoop,common
 powertoys,scoop,common
 pwsh,scoop,base
-python,chocolatey,base
+python,scoop,base
 slack,scoop,slack
 mattermost,scoop,mattermost
 spacesniffer,scoop,common
