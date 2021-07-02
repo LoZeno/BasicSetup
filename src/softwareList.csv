@@ -37,7 +37,7 @@ keepassxc,scoop,common
 nuget,scoop,common
 nvm,scoop,nodejs
 yarn,scoop,nodejs
-insomnia-designer,scoop,common
+insomnia,scoop,common
 powertoys,scoop,common
 pwsh,scoop,base
 python,scoop,base
