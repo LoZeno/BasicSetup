@@ -15,9 +15,6 @@ Set-PoshPrompt -Theme slim
 # PSFzf
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
 
-# Set the default prompt theme
-Set-PoshPrompt -Theme paradox
-
 #REFRESHENV
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 
