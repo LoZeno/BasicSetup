@@ -6,7 +6,7 @@ dotnetfx,chocolatey,base
 firacodenf,chocolatey,base
 less,chocolatey,base
 malwarebytes,chocolatey,common
-microsoft-windows-terminal,chocolatey,base
+windows-terminal,scoop,base
 microsoft-teams,chocolatey,msteams
 netfx-4.8,chocolatey,base
 viscosity,chocolatey,vpn
