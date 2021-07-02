@@ -19,7 +19,7 @@ Import-Module -Name oh-my-posh
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
 
 # Set the default prompt theme
-Set-Theme paradox
+Set-PoshPrompt -Theme paradox
 
 #REFRESHENV
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
