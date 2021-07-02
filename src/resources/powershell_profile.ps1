@@ -9,11 +9,8 @@ Import-Module Get-ChildItemColor
 Set-Alias l Get-ChildItemColor -Option AllScope
 Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
 
-# Ensure posh-git is loaded
-Import-Module -Name posh-git
-
-# # Ensure oh-my-posh is loaded
-# Import-Module -Name oh-my-posh
+# oh-my-posh theme
+Set-PoshPrompt -Theme slim
 
 # PSFzf
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'

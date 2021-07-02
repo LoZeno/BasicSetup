@@ -14,13 +14,13 @@ foreach ($item in Get-Content -Path ".\scoop.txt") {
 Write-Host $scoopCommand -ForegroundColor Yellow
 Invoke-Expression "$scoopCommand"
 
-$gsudoCommand = "gsudo config CacheMode auto"
-Write-Host "Setting gsudo cache mode" -ForegroundColor Yellow
-Write-Host $gsudoCommand -ForegroundColor Yellow
-Invoke-Expression "$gsudoCommand"
-
 Write-Host "Setting up registry keys for Visual Studio Code"
 Invoke-Expression "$env:USERPROFILE\scoop\apps\vscode\current\vscode-install-context.reg"
 
 Write-Host "Setting up registry keys for python"
 Invoke-Expression "$env:USERPROFILE\scoop\apps\python\current\install-pep-514.reg"
+
+$gsudoCommand = "gsudo config CacheMode auto"
+Write-Host "Setting gsudo cache mode" -ForegroundColor Yellow
+Write-Host $gsudoCommand -ForegroundColor Yellow
+Invoke-Expression "$gsudoCommand"

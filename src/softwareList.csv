@@ -3,7 +3,7 @@ PackageName,Installer,List
 docker-desktop,chocolatey,docker
 docker-kitematic,chocolatey,docker
 dotnetfx,chocolatey,base
-FiraCode,chocolatey,base
+firacodenf,chocolatey,base
 less,chocolatey,base
 malwarebytes,chocolatey,common
 microsoft-windows-terminal,chocolatey,base
