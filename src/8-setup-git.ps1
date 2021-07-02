@@ -13,6 +13,7 @@ Invoke-Expression "git config --global alias.lg `"log --graph --pretty=format:'%
 if (('Y', 'y') -contains $generateSSH) {
     Write-Host "Generating a new ssh key using $email as the label"
     Invoke-Expression "ssh-keygen -t rsa -b 4096 -C '$email'"
+    gsudo Set-Service -Name ssh-agent -StartupType Automatic
     Start-Service ssh-agent
     Invoke-Expression "ssh-add ~\.ssh\id_rsa"
 }
