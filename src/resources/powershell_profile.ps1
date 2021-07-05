@@ -32,6 +32,12 @@ function newAdmin {
     elevate $PROFILE
 }
 
+#Run the last command elevated with gsudo
+function gsudo!! { 
+    $c = Get-Content (Get-PSReadLineOption).HistorySavePath | Select-Object -last 1 -Skip 1
+    gsudo $c 
+ }
+
 function formatPathForWsl($FilePath){
     return $FilePath -replace “\\”, “/” -replace “ “, “\ “ -replace “[A-Z]:“, {"/mnt/"+$_.Value.ToLower()[0]}
 }
