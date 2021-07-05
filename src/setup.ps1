@@ -26,11 +26,6 @@ Invoke-Expression $PSScriptRoot\2-install-scoop.ps1
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline
-# $adminCommands = "gsudo $PSScriptRoot\2-enable-windows-features.ps1; 
-#         gsudo $PSScriptRoot\3-install-chocolatey.ps1; 
-#         gsudo $PSScriptRoot\4-install-software.ps1;"
-# Start-Process powershell.exe -Wait -Verb RunAs -Args "-executionpolicy bypass -command Set-Location $PWD; $args;"
-# Invoke-Expression "$adminCommands"
 gsudo Set-ExecutionPolicy RemoteSigned
 Unblock-File -Path $PSScriptRoot\3-enable-windows-features.ps1
 Unblock-File -Path $PSScriptRoot\4-install-chocolatey.ps1
