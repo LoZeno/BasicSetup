@@ -73,3 +73,4 @@ hashicorp.terraform,vs-code,aws
 hashicorp.terraform,vs-code,azure
 ms-vscode.vscode-typescript-tslint-plugin,vs-code,nodejs
 gsudo,scoop,base
+tldr,scoop,cli

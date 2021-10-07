@@ -26,7 +26,7 @@ cd .\BasicSetup-master\src\
 * [FiraCode font](https://github.com/tonsky/FiraCode)
 * IDE and binaries for the chosen development stack(s) (.NET Core, Java, Go, Javascript, Rust)
 * [gsudo - a sudo for Windows](https://github.com/gerardog/gsudo) (probably the best sudo-like tool for Windows that I have ever seen)
-* Several CLI utilities: [GOW](https://github.com/bmatzelle/gow), [ag](https://geoff.greer.fm/ag/), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [noti](https://github.com/variadico/noti), [fzf](https://github.com/junegunn/fzf) and its Powershell wrapper [PSFzf](https://github.com/kelleyma49/PSFzf)
+* Several CLI utilities: [GOW](https://github.com/bmatzelle/gow), [ag](https://geoff.greer.fm/ag/), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [noti](https://github.com/variadico/noti), [fzf](https://github.com/junegunn/fzf) and its Powershell wrapper [PSFzf](https://github.com/kelleyma49/PSFzf), a [tldr-pages client](https://github.com/tldr-pages/tldr)
 * [Sysinternals tools](https://docs.microsoft.com/en-us/sysinternals/)
 * [Microsoft Powertoys](https://github.com/microsoft/PowerToys)
 * Wonderful powershell and git utilities like [TheFuck](https://github.com/nvbn/thefuck), [PoshGit](https://github.com/dahlbyk/posh-git), [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh), [git gud](https://github.com/fsufitch/git-gud)
