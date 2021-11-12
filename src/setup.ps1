@@ -8,11 +8,13 @@ $gitEmail = Read-Host  "Enter your Git email: "
 while ($options -notcontains $gitGenerateSSH) {
     $gitGenerateSSH = Read-Host "Do you want to generate your SSH key? [Y]es/[N]o" 
 }
+while ($options -notcontains $installShovel) {
+    $installShovel = Read-Host "Do you want to replace Scoop with Shovel? [Y]es/[N]o" 
+}
 
 Invoke-Expression $PSScriptRoot\1-parse-csv.ps1
 
 if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
-
     Write-Host "Installing scoop... " -ForegroundColor Yellow
     Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
     Write-Host "Done" -ForegroundColor Yellow
@@ -22,7 +24,7 @@ if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
 }
 
 Write-Host "Installing software with scoop... " -ForegroundColor Yellow
-Invoke-Expression $PSScriptRoot\2-install-scoop.ps1
+Invoke-Expression "$PSScriptRoot\2-install-scoop.ps1 $installShovel"
 Write-Host "Done" -ForegroundColor Yellow
 
 Write-Host "Performing Admin-level tasks... " -ForegroundColor Yellow -NoNewline

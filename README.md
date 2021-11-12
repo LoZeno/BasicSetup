@@ -19,7 +19,7 @@ cd .\BasicSetup-master\src\
 
 * Hyper-V and WSL (Windows Subsystem for Linux) in the Windows Features list. It does NOT install Ubuntu for WSL (or OpenSUSE for WSL or Kali or Debian...), for those you'll need to manually get them from the Microsoft Store
 * [Chocolatey package manager](https://chocolatey.org/docs)
-* [Scoop package manager](https://github.com/lukesampson/scoop/wiki)
+* [Scoop package manager](https://github.com/lukesampson/scoop/wiki) or, alternatively, [Shovel](https://github.com/Ash258/Scoop-Core)
 * [Docker Desktop](https://www.docker.com/)
 * [Viscosity OpenVPN Client](https://www.sparklabs.com/viscosity/)
 * [Powershell Core](https://github.com/powershell/powershell)
