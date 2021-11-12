@@ -59,4 +59,8 @@ Remove-Item -Path "$PSScriptRoot\packages.config"
 Remove-Item -Path "$PSScriptRoot\scoop.txt"
 Remove-Item -Path "$PSScriptRoot\vscode.txt"
 
-Write-Host "Please reboot your machine."
+# scoop checkup
+Write-Host "Checking up status of scoop..." -ForegroundColor White
+Invoke-Expression "scoop checkup"
+
+Write-Host "Please reboot your machine." - -ForegroundColor White
