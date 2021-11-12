@@ -5,6 +5,10 @@ Scripts for basic setup of a windows development machine (.NET Core and/or Node 
 This script was developed based on what **I** needed to rebuild on my laptop moving from one client to another. Your mileage may vary and nothing stops you from changing the stuff inside it.  
 My preferred way of work is to NEVER login with an Administrator level account, and instead type the admin passwod every time a UAC popup shows on my screen, so I planned my setup around that. Some people hate that, if you're one of those people you can use this from an Administrator account as well, it will still work.
 
+## Prerequisite
+When I first wrote this script, the tools included were pretty much all portable and self-contained; with time, I've added more and more things (rust-msvc, python libraries) that rely on [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).  
+So, before using this script, download the Microsoft C++ Build Tools, run the installer, and select the **Desktop development with C++** workload.
+
 ## How to use: 
 Open powershell, then type, in this order:
 ```powershell
