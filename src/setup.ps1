@@ -1,6 +1,15 @@
 foreach ($item in Get-Content -Path .\resources\banner.txt) {
     Write-Host $item
 }
+
+# check windows version
+
+$windowsVersion = [System.Environment]::OSVersion.Version
+
+if ($windowsVersion.Major -lt 10) {
+    Write-Error "This setup script requires Windows version 10 or greater" -ErrorAction Stop
+}
+
 $options = ("Y", "N", "y", "n")
 Write-Host "Enter your Git setup details:" -ForegroundColor Yellow
 $gitUser = Read-Host "Enter your Git user name: " 
