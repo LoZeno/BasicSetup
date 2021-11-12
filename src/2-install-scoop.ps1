@@ -1,7 +1,20 @@
-# Invoke-Expression "scoop config 7ZIPEXTRACT_USE_EXTERNAL $true"
-Invoke-Expression "scoop install git-with-openssh aria2"
+$installShovel = $args[0]
 
-Write-Host "Adding scoop buckets: extra, java, jetbrains, versions" -ForegroundColor Yellow
+Invoke-Expression "scoop install aria2 7zip git-with-openssh"
+
+if (("Y", "y") -contains $installShovel) {
+    if($null -eq (Get-Command "shovel" -ErrorAction SilentlyContinue)) {
+        Write-Host "Replacing scoop with shovel... " -ForegroundColor Yellow
+        Invoke-Expression "scoop install 7zip git;
+            scoop config SCOOP_REPO 'https://github.com/Ash258/Scoop-Core';
+            scoop update"
+        Write-Host "Done" -ForegroundColor Yellow
+    } else {
+        Write-Host "Shovel already installed. Run 'scoop checkup' after setup is completed." -ForegroundColor Yellow
+    }
+}
+
+Write-Host "Adding scoop buckets: extras, java, jetbrains, versions" -ForegroundColor Yellow
 Invoke-Expression "scoop bucket add extras"
 Invoke-Expression "scoop bucket add jetbrains"
 Invoke-Expression "scoop bucket add java"

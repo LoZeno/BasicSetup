@@ -1,5 +1,4 @@
 PackageName,Installer,List
-7zip,scoop,base
 docker-desktop,chocolatey,docker
 docker-kitematic,chocolatey,docker
 dotnetfx,chocolatey,base
