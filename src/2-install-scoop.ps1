@@ -28,7 +28,7 @@ Write-Host $scoopCommand -ForegroundColor Yellow
 Invoke-Expression "$scoopCommand"
 
 Write-Host "Setting up registry keys for Visual Studio Code"
-Invoke-Expression "$env:USERPROFILE\scoop\apps\vscode\current\vscode-install-context.reg"
+Invoke-Expression "$env:USERPROFILE\scoop\apps\vscode\current\install-context.reg"
 
 Write-Host "Setting up registry keys for python"
 Invoke-Expression "$env:USERPROFILE\scoop\apps\python\current\install-pep-514.reg"
