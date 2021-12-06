@@ -3,13 +3,13 @@ foreach ($item in Get-Content -Path .\resources\banner.txt) {
 }
 
 # check windows version
-
 $windowsVersion = [System.Environment]::OSVersion.Version
 
 if ($windowsVersion.Major -lt 10) {
     Write-Error "This setup script requires Windows version 10 or greater" -ErrorAction Stop
 }
 
+# collecting Git user details to use at the end
 $options = ("Y", "N", "y", "n")
 Write-Host "Enter your Git setup details:" -ForegroundColor Yellow
 $gitUser = Read-Host "Enter your Git user name: " 
@@ -17,12 +17,18 @@ $gitEmail = Read-Host  "Enter your Git email: "
 while ($options -notcontains $gitGenerateSSH) {
     $gitGenerateSSH = Read-Host "Do you want to generate your SSH key? [Y]es/[N]o" 
 }
+
+# option to use Shovel [https://github.com/Ash258/Scoop-Core] instead of Scoop [https://github.com/ScoopInstaller/Scoop]
 while ($options -notcontains $installShovel) {
     $installShovel = Read-Host "Do you want to replace Scoop with Shovel? [Y]es/[N]o" 
 }
 
+# parsing the CSV file and generating packages.config, scoop.txt, vscode.txt
+# according to user preferences. These files will be used by the appropriate installers
+# to install the applications selected.
 Invoke-Expression $PSScriptRoot\1-parse-csv.ps1
 
+# install scoop if not already present
 if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
     Write-Host "Installing scoop... " -ForegroundColor Yellow
     Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
@@ -32,6 +38,7 @@ if($null -eq (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
     Write-Host "Previous scoop installation detected" -ForegroundColor Yellow
 }
 
+# installing scoop packages
 Write-Host "Installing software with scoop... " -ForegroundColor Yellow
 Invoke-Expression "$PSScriptRoot\2-install-scoop.ps1 $installShovel"
 Write-Host "Done" -ForegroundColor Yellow

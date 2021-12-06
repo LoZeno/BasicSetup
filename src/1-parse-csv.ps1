@@ -3,9 +3,10 @@ $stackOptions = ("Y", "N", "S", "y", "n", "s")
 
 $csvFile =  Import-Csv .\softwareList.csv
 
+# ask the user which software stacks they want to install
 while (('Y', 'y') -notcontains $accepted) {
     $accepted = "";
-    $stacks = $csvFile | Group-Object -Property "List" | sort -Property "Name" | Select-Object Name
+    $stacks = $csvFile | Group-Object -Property "List" | Sort-Object -Property "Name" | Select-Object Name
 
     $selectedStacks = @()
     $stacks | ForEach-Object -Process {
@@ -37,7 +38,7 @@ while (('Y', 'y') -notcontains $accepted) {
 }
 
 # prepare packages.config for chocolatey
-$chocolateyPackages = $selectedPackages | ? Installer -eq "chocolatey" | select PackageName
+$chocolateyPackages = $selectedPackages | Where-Object Installer -eq "chocolatey" | Select-Object PackageName
 
 [xml]$xmlDocument = New-Object System.Xml.XmlDocument
 $decoration = $xmlDocument.CreateXmlDeclaration("1.0", "utf-8", $null)
@@ -55,16 +56,14 @@ foreach($package in $chocolateyPackages) {
 $xmlDocument.Save("$PSScriptRoot\packages.config") | Out-Null
 
 # prepare list file for scoop
-
-$scoopPackages = $selectedPackages | ? Installer -eq "scoop" | sort -Property "PackageName" | select PackageName
+$scoopPackages = $selectedPackages | Where-Object Installer -eq "scoop" | Sort-Object -Property "PackageName" | Select-Object PackageName
 
 foreach($package in $scoopPackages) {
     Add-Content -Path "$PSScriptRoot\scoop.txt" -Value $package.PackageName
 }
 
-# prepare list file for vscode
-
-$vscodePlugins = $selectedPackages | ? Installer -eq "vs-code" | sort -Property "PackageName" | select PackageName
+# prepare list file for vscode plugins
+$vscodePlugins = $selectedPackages | Where-Object Installer -eq "vs-code" | Sort-Object -Property "PackageName" | Select-Object PackageName
 
 foreach($plugin in $vscodePlugins) {
     Add-Content -Path "$PSScriptRoot\vscode.txt" -Value $plugin.PackageName
