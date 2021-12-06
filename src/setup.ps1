@@ -45,21 +45,6 @@ Write-Host "Installing software with scoop... " -ForegroundColor Yellow
 Invoke-Expression "$PSScriptRoot\2-install-scoop.ps1 $installShovel"
 Write-Host "Done" -ForegroundColor Yellow
 
-# installing wsl with the new fancy wsl --install for the windows versions that support it
-if (($windowsVersion.Major -ge 11) -or ($windowsVersion.Build -ge 19041)) {
-    Write-Host "This is the list of wsl distributions available (output of wsl --list --online):" -ForegroundColor Yellow
-    # show the list of available wsl distributions:
-    Invoke-Expression "wsl --list --online"
-    do {
-        $selectedDistro = Read-Host "What distribution from the list do you want to install? (default is Ubuntu)"
-        if ($null -eq $selectedDistro){
-            $wslInstallResult = Invoke-Expression "wsl --install"
-        } else {
-            $wslInstallResult =  Invoke-Expression "wsl --install -d $selectedDistro"
-        }
-    } while ($wslInstallResult.StartsWith("Invalid distribution"))
-}
-
 # performing tasks that require elevated permissions (using gsudo to elevate):
 # 1- enabling windows features
 # 2- installing chocolatey
@@ -73,6 +58,21 @@ Invoke-Expression "gsudo $PSScriptRoot\3-enable-windows-features.ps1 $($windowsV
         gsudo $PSScriptRoot\4-install-chocolatey.ps1;
         gsudo $PSScriptRoot\5-install-software.ps1"
 Write-Host "Done" -ForegroundColor Yellow
+
+# installing wsl with the new fancy wsl --install for the windows versions that support it
+if (($windowsVersion.Major -ge 11) -or ($windowsVersion.Build -ge 19041)) {
+    do {
+        Write-Host "This is the list of wsl distributions available (output of wsl --list --online):" -ForegroundColor Yellow
+        # show the list of available wsl distributions:
+        Invoke-Expression "wsl --list --online"
+        $selectedDistro = Read-Host "What distribution from the list do you want to install? (default is Ubuntu)"
+        if ("" -eq $selectedDistro){
+            $wslInstallResult = Invoke-Expression "wsl --install"
+        } else {
+            $wslInstallResult =  Invoke-Expression "wsl --install -d $selectedDistro"
+        }
+    } while ($wslInstallResult.StartsWith("Invalid distribution"))
+}
 
 # finally setting up the dev environment
 Write-Host "Setting up a refreshenv function alias" -ForegroundColor Yellow
