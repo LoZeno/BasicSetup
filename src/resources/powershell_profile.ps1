@@ -18,6 +18,9 @@ Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
 #REFRESHENV
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 
+# Gsudo previous-command (!!)
+Import-Module "$env:USERPROFILE\scoop\apps\gsudo\current\gsudoModule.psm1"
+
 #Start new powershell prompt as administrator, and closes when command is completed
 function su {
     Start-Process pwsh.exe -Verb RunAs -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; $args;" 
@@ -31,12 +34,6 @@ function elevate {
 function newAdmin {
     elevate $PROFILE
 }
-
-#Run the last command elevated with gsudo
-function gsudo!! { 
-    $c = Get-Content (Get-PSReadLineOption).HistorySavePath | Select-Object -last 1 -Skip 1
-    gsudo $c 
- }
 
 function formatPathForWsl($FilePath){
     return $FilePath -replace “\\”, “/” -replace “ “, “\ “ -replace “[A-Z]:“, {"/mnt/"+$_.Value.ToLower()[0]}
