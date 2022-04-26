@@ -6,11 +6,6 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Write-Host "Installing Get-ChildItemColor"
 Install-Module -Name Get-ChildItemColor -AllowClobber
 
-#oh-my-posh
-Write-Host "Installing oh-my-posh"
-Install-Module oh-my-posh -Scope CurrentUser
-Set-PoshPrompt -Theme slim
-
 #PSFzf
 Write-Host "Installing Powershell wrapper for fzf"
 Install-Module -Name PSFzf

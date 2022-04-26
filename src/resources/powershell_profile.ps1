@@ -9,8 +9,8 @@ Import-Module Get-ChildItemColor
 Set-Alias l Get-ChildItemColor -Option AllScope
 Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
 
-# oh-my-posh theme
-Set-PoshPrompt -Theme slim
+# Set the default prompt theme
+oh-my-posh init pwsh --config "$(scoop prefix oh-my-posh)\themes\slim.omp.json" | Invoke-Expression
 
 # PSFzf
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'

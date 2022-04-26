@@ -8,6 +8,7 @@ malwarebytes,chocolatey,common
 windows-terminal,scoop,base
 microsoft-teams,chocolatey,msteams
 netfx-4.8,chocolatey,base
+oh-my-posh,scoop,base
 viscosity,chocolatey,vpn
 git-with-openssh,scoop,base
 ack,scoop,cli
