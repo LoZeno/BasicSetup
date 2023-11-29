@@ -11,6 +11,7 @@ Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
 
 # Set the default prompt theme
 oh-my-posh init pwsh --config "$(scoop prefix oh-my-posh)\themes\slim.omp.json" | Invoke-Expression
+$env:POSH_GIT_ENABLED = $true
 
 # PSFzf
 Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
@@ -18,8 +19,11 @@ Import-Module PSFzf -ArgumentList 'Ctrl+t','Ctrl+f'
 #REFRESHENV
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
 
-# Gsudo previous-command (!!)
-Import-Module "$env:USERPROFILE\scoop\apps\gsudo\current\gsudoModule.psm1"
+# Gsudo last command (!!)
+Import-Module gsudoModule
+
+# Import scoop completion command module
+Import-Module "$(scoop prefix oh-my-posh)\supporting\completion\Scoop-Completion.psd1" -ErrorAction SilentlyContinue
 
 #Start new powershell prompt as administrator, and closes when command is completed
 function su {
